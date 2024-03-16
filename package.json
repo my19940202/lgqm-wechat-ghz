@@ -1,0 +1,19 @@
+{
+  "name": "wechart-gzh-robot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "微信公众号接入大模型"
+  ],
+  "author": "xibobo",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.3"
+  }
+}
