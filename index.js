@@ -32,7 +32,7 @@ app.all('/chat', async (req, res) => {
         if (Content === '1') {
             res.send({
                 ...msgData,
-                Content: cacheResultMap[ToUserName] || '小书虫没找到答案，请稍后重试'
+                Content: cacheResultMap[ToUserName] || '小书虫没找到答案，请稍后再重试'
             });
         }
         else {

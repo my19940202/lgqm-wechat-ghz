@@ -85,7 +85,7 @@ function getAccessToken() {
 function resDefMsg4s() {
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve('小书虫思考中🤔, 请发送1查看回复');
+            resolve('小书虫思考中🤔, 请5秒后发送1查看回复');
         }, 4000);
     });
 }
@@ -95,7 +95,9 @@ function resLlmMsg(text, cacheKey, cacheMap) {
         const {result} = await baiduBot(text);
         if (result) {
             resolve(result);
-            cacheMap[cacheKey] = result;
+            if (cacheKey && cacheMap) {
+                cacheMap[cacheKey] = result;
+            }
         }
         else {
             reject(0);
@@ -103,8 +105,8 @@ function resLlmMsg(text, cacheKey, cacheMap) {
     });
 }
 
-// 使用主动回复的方式 请求一直没通 还在排查中
-function sendmess(appid, mess) {
+// 使用主动回复 发送回复消息
+function sendInitiativeMsg(appid, mess) {
     return new Promise((resolve, reject) => {
         request({
             method: 'POST',
@@ -122,12 +124,11 @@ function sendmess(appid, mess) {
     })
 }
 
-
 module.exports = {
     baiduBot,
     safeParseJSON,
     resDefMsg4s,
     resLlmMsg,
-    sendmess
+    sendInitiativeMsg
 }
 
