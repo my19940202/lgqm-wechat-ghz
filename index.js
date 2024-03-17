@@ -1,3 +1,4 @@
+// 被动回复
 const express = require('express');
 const app = express();
 app.use(express.json());
@@ -55,11 +56,11 @@ app.all('/chat', async (req, res) => {
             FromUserName: ToUserName,
             CreateTime: CreateTime,
             MsgType: 'text',
-            Content: '暂不支持其他类型'
+            Content: '暂不支持非文字类信息回复'
         });
     }
 });
 
 app.listen(PORT, function(){
-    console.log('服务启动成功！')
+    console.log('passive msg service is running')
 })

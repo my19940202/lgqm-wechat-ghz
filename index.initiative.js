@@ -30,11 +30,11 @@ app.all('/chat', async (req, res) => {
             FromUserName: ToUserName,
             CreateTime: CreateTime,
             MsgType: 'text',
-            Content: '暂不支持其他类型'
+            Content: '暂不支持非文字类信息回复'
         });
     }
 });
 
 app.listen(PORT, function(){
-    console.log('服务启动成功！')
+    console.log('initiative msg service is running')
 });

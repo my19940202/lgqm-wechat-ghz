@@ -1,3 +1,4 @@
+// 工具函数
 
 const request = require('request');
 const API = 'https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/plugin/3pyn7rz4zmzdffp7/?access_token=';
@@ -106,7 +107,7 @@ function resLlmMsg(text, cacheKey, cacheMap) {
 }
 
 // 使用主动回复 发送回复消息
-function sendInitiativeMsg(appid, mess) {
+function sendInitiativeMsg(appid = 'wx1432d9c9b2205448', mess) {
     return new Promise((resolve, reject) => {
         request({
             method: 'POST',
