@@ -1,4 +1,4 @@
-// 采用主动回复的方式接入微信公众号
+// 采用主动回复的方式接入微信公众号， 需要公司认证过的账户才能调用 暂时先放弃
 const express = require('express');
 const app = express();
 app.use(express.json());
