@@ -7,11 +7,12 @@ const {PORT = 8800} = process.env;
 
 const {sendInitiativeMsg, resLlmMsg} = require('./util');
 
-app.post('/', async (req, res) => {
+app.post('/chat', async (req, res) => {
     console.log('/消息推送', req.body);
     res.send('success');
 });
-app.all('/chat', async (req, res) => {
+
+app.all('/', async (req, res) => {
     const appid = req.headers['x-wx-from-appid'] || '';
     console.log(appid, '/chat消息推送', req.body)
     const {ToUserName, FromUserName, MsgType, CreateTime, Content} = req.body
